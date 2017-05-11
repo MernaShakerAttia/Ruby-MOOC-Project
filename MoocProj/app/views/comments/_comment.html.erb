@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="list-group">
+    <div class="list-group-item active">
+      <h4 class="list-group-item-heading">User Comments:</h4>
+    </div>
+    <% @comments.each do |comment| %>
+
+    <div class="list-group-item">
+      <h4 class="list-group-item-heading"><%= comment.user.email %></h4>
+      <p class="list-group-item-text"><%= comment.content %></p>
+    </div>
+
+    <% end %>
+  </div>
+</div>
+<%= render 'comments/form' %>

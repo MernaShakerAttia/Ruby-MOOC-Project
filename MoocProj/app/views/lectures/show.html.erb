@@ -1,0 +1,44 @@
+<div class="jumbotron">
+  <h1 class="container"><%= @lecture.Course.title%></h1>
+  <h3 class="container">By :
+    <%= @lecture.User.email %>
+  </h3>
+  <p class="container"><%= @lecture.content %></p>
+  <div class="container">
+  <%= link_to 'Show Attachment', @lecture.attachment.url ,{ :class=>"btn btn-info" }%>
+  </div>
+</div>
+
+<div class="row container">
+  <div class="col-xs-6 col-md-3">
+    <div class="thumbnail text-center">
+      <%= link_to like_lecture_path(@lecture), method: :put do %>
+      <%=image_tag("thumb_up.png", :width => 50, :height => 50)%>
+      Like
+      <%= @lecture.get_upvotes.size %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-xs-6 col-md-3">
+    <div class="thumbnail text-center">
+      <%= link_to dislike_lecture_path(@lecture), method: :put do %>
+      <%=image_tag("thumb_down.png", :width => 50, :height => 50)%>
+      Dislike
+      <%= @lecture.get_downvotes.size %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<%= render 'comments/comment'%>
+
+<hr>
+<div class="container">
+<% if @lecture.User.id==current_user.id %>
+<%= link_to 'Edit', edit_lecture_path(@lecture),{ :class=>"btn btn-info" } %>
+<% end %>
+<%= link_to 'Back', lectures_path ,{ :class=>"btn btn-info" }%>
+</div>

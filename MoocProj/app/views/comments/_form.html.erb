@@ -1,0 +1,13 @@
+<div class="container">
+
+  <%= form_for ([@lecture, @lecture.comments.build]) do |f| %>
+  <div class="field">
+    <%= f.label :Comment %><br>
+    <%= f.text_area :content ,class: 'form-control'%>
+  </div>
+
+  <div class="actions">
+    <%= f.submit :class => 'btn btn-info' %>
+  </div>
+  <% end %>
+</div>
