@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_lecture
 
 
@@ -9,7 +10,7 @@ class CommentsController < ApplicationController
       if  @comment.save
           redirect_to @lecture
       else
-          render 'new'
+          redirect_to @lecture
       end
   end
 

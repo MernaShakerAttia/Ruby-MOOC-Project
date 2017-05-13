@@ -6,8 +6,9 @@
     <% @comments.each do |comment| %>
 
     <div class="list-group-item">
-      <h4 class="list-group-item-heading"><%= comment.user.email %></h4>
+      <h2 class="list-group-item-heading"><%= comment.user.name %> :</h2>
       <p class="list-group-item-text"><%= comment.content %></p>
+      <p> <%= time_ago_in_words(comment.created_at) %> ago </p>
     </div>
 
     <% end %>
