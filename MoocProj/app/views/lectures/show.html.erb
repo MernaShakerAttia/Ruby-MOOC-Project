@@ -3,7 +3,7 @@
   <h3 class="container">By :
     <%= @lecture.User.name %>
   </h3>
-  <p class="container"><%= @lecture.content %></p>
+  <p class="container"><%=raw @lecture.content %></p>
   <div class="container">
   <%= link_to 'Show Attachment', @lecture.attachment.url ,{ :class=>"btn btn-info" }%>
   </div>

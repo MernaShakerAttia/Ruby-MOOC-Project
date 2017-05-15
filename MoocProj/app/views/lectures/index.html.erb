@@ -15,8 +15,8 @@
     <tbody>
       <% @lectures.each do |lecture| %>
       <tr>
-        <td><%= lecture.content %></td>
-        <td><%= link_to 'Download', lecture.attachment.url %></td>
+        <td><%=raw lecture.content %></td>
+        <td><%= link_to 'Show Attachment', lecture.attachment.url %></td>
         <td><%= lecture.Course.title %></td>
         <td><%= lecture.User.name %></td>
         <td><%= link_to 'Show', lecture %></td>
